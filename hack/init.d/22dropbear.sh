@@ -34,7 +34,7 @@ echo root:`openssl passwd -1 -salt boxee $pw`:0:0:root:/:/data/hack/bin/bash > /
 tail -n+2 /etc/passwd >> /data/hack/.ssh/passwd
 mount -o bind /data/hack/.ssh/passwd /etc/passwd
 
-echo /bin/sh>>/tmp/shells
-echo /data/hack/bin/bash>/tmp/shells
+echo /bin/sh>/tmp/shells
+echo /data/hack/bin/bash>>/tmp/shells
 /data/hack/bin/dropbear -r /data/hack/.ssh/id_rsa
 
