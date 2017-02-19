@@ -24,7 +24,7 @@ do
 				b=xbmc.bin
 			fi
 			chmod +x ${p}/${b}
-			HOME=${p} GCONV_PATH=${p}/gconv AE_ENGINE=active PYTHONPATH=${p}/python2.7:${p}/python2.7/lib-dynload PYTHONHOME=${p}/python2.7:${p}/python2.7/lib-dynload XBMC_HOME=${p} ${p}/${b} --standalone -p -l /var/run/lirc/lircd 2>>/tmp/xbmc.log
+			HOME=${p} GCONV_PATH=${p}/gconv SSL_CERT_FILE=${p}/system/certs/cacert.pem PYTHONOPTIMIZE=1 PYTHONPATH=${p}/python2.7:${p}/python2.7/lib-dynload PYTHONHOME=${p}/python2.7:${p}/python2.7/lib-dynload XBMC_HOME=${p} ${p}/${b} --standalone -p -l /var/run/lirc/lircd 2>>/tmp/xbmc.log
 			ret=$?
 			break
 		fi
