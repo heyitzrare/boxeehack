@@ -38,13 +38,13 @@ then
 else
 	echo "Hack folder not found, proceeding to download"
     # download the latest version
-    rm -Rf /download/boxeehack-master
+    rm -Rf /download/hack
     rm /download/boxeehack.zip
     cd /download
 	echo "Downloading boxeehack.zip" >> $BASEDIR/install.log
-    /opt/local/bin/curl -L http://dl.boxeed.in/boxeehack.zip -o boxeehack.zip
+    /opt/local/bin/curl -L https://github.com/TheBestJohn/boxeehack/releases/download/boxeehack/hack.zip -o boxeehack.zip
 	echo "Downloading boxeehack.md5" >> $BASEDIR/install.log
-    /opt/local/bin/curl -L http://dl.boxeed.in/boxeehack.md5 -o boxeehack.md5
+    /opt/local/bin/curl -L https://github.com/TheBestJohn/boxeehack/releases/download/boxeehack/hack.md5 -o boxeehack.md5
     md5_1=$(md5sum boxeehack.zip | awk '{print $1}')
     md5_2=$(awk '{print $1}' "boxeehack.md5")
 	echo "MD5 of zip: $md5_1" >> $BASEDIR/install.log
@@ -61,16 +61,16 @@ else
 	echo "Unzipping boxeehack.zip" >> $BASEDIR/install.log
     /bin/busybox unzip boxeehack.zip
 
-	ver_2=$(awk '{print $1}' "/download/boxeehack-master/hack/version")
+	ver_2=$(awk '{print $1}' "/download/hack/version")
 	echo "Version of unzipped: $ver_2" >> $BASEDIR/install.log
 	
     # copy the hack folder, and clean up
 	echo "Copying the hack folder" >> $BASEDIR/install.log
     rm -Rf /data/hack
-    cp -R /download/boxeehack-master/hack /data/
+    cp -R /download/hack /data/
 
 	echo "Cleaning Up" >> $BASEDIR/install.log
-    rm -Rf /download/boxeehack-master
+    rm -Rf /download/hack
     rm /download/boxeehack.zip
 	rm /download/boxeehack.md5
 fi
