@@ -42,9 +42,9 @@ else
     rm /download/boxeehack.zip
     cd /download
 	echo "Downloading boxeehack.zip" >> $BASEDIR/install.log
-    /opt/local/bin/curl -L https://github.com/TheBestJohn/boxeehack/releases/download/boxeehack/hack.zip -o boxeehack.zip
+    /opt/local/bin/curl -L https://github.com/heyitzrare/boxeehack/releases/download/1.0/hack.zip -o boxeehack.zip
 	echo "Downloading boxeehack.md5" >> $BASEDIR/install.log
-    /opt/local/bin/curl -L https://github.com/TheBestJohn/boxeehack/releases/download/boxeehack/hack.md5 -o boxeehack.md5
+    /opt/local/bin/curl -L https://github.com/heyitzrare/boxeehack/releases/download/1.0/hack.md5 -o boxeehack.md5
     md5_1=$(md5sum boxeehack.zip | awk '{print $1}')
     md5_2=$(awk '{print $1}' "boxeehack.md5")
 	echo "MD5 of zip: $md5_1" >> $BASEDIR/install.log
